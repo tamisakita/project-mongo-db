@@ -11,7 +11,7 @@ import java.util.List;
 public class Consumer {
 
     @Id
-    private Long id;
+    private String id;
     private String name;
     private List<Address> address;
 

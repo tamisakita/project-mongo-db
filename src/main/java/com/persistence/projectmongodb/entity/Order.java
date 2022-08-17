@@ -11,7 +11,7 @@ import java.util.List;
 public class Order {
 
     @Id
-    private Long id;
+    private String id;
 
     private String name;
 
