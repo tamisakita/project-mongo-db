@@ -13,15 +13,12 @@ public class Order {
     @Id
     private String id;
 
-    private String name;
-
     private List<Product> product;
 
     private Consumer consumer;
 
-    public Order(String nome, List<Product> product, Consumer consumer) {
+    public Order(List<Product> product, Consumer consumer) {
         super();
-        this.name = nome;
         this.product = product;
         this.consumer = consumer;
     }

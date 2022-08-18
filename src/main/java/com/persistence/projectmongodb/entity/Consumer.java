@@ -1,5 +1,6 @@
 package com.persistence.projectmongodb.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -8,28 +9,13 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class Consumer {
 
-    @Id
-    private String id;
     private String name;
     private List<Address> address;
-
-    public Consumer() {}
-
-    public Consumer(String name) {
-        this.name = name;
-    }
-
-    public Consumer(String nome, List<Address> address) {
-        super();
-        this.name = nome;
-        this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "ID: " + id + " - Nome: " + name + "\nEndereco: " + address;
-    }
+    private String email;
+    private String phone;
+    private String cpf;
 
 }

@@ -1,6 +1,7 @@
 package com.persistence.projectmongodb.controller;
 
 import com.persistence.projectmongodb.entity.Order;
+import com.persistence.projectmongodb.entity.Product;
 import com.persistence.projectmongodb.service.OrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +18,12 @@ public class OrderController {
 
     private final OrderService service;
 
-    @GetMapping
+    @GetMapping("/orders")
     public List<Order> getAllOrders() {
         return service.getAllOrders();
     }
 
-    @PostMapping()
+    @PostMapping("/order")
     public Order saveOrder(Order order) {
         return service.saveOrder(order);
     }
