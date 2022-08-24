@@ -1,5 +1,6 @@
 package com.persistence.projectmongodb.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -11,16 +12,13 @@ import java.util.List;
 public class Order {
 
     @Id
-    private String id;
+    private String order_id;
 
-    private List<Product> product;
+    private List<Product> productList;
 
-    private Consumer consumer;
-
-    public Order(List<Product> product, Consumer consumer) {
-        super();
-        this.product = product;
-        this.consumer = consumer;
+    public Order(List<Product> productList) {
+        this.productList = productList;
     }
+
 
 }

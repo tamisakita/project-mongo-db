@@ -1,31 +1,40 @@
 package com.persistence.projectmongodb.controller;
 
+import com.persistence.projectmongodb.entity.Consumer;
 import com.persistence.projectmongodb.entity.Order;
 import com.persistence.projectmongodb.entity.Product;
-import com.persistence.projectmongodb.service.OrderService;
+import com.persistence.projectmongodb.service.ConsumerService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("orders")
+@RequestMapping("/consumer")
 @AllArgsConstructor
 public class OrderController {
 
-    private final OrderService service;
+    private final ConsumerService service;
 
-    @GetMapping("/orders")
-    public List<Order> getAllOrders() {
-        return service.getAllOrders();
+    @GetMapping("/{id}")
+    public Optional<Consumer> getAllOrders(@PathVariable String id) {
+        return service.findConsumer(id);
     }
 
-    @PostMapping("/order")
-    public Order saveOrder(Order order) {
-        return service.saveOrder(order);
+    @GetMapping("/")
+    public List<Consumer> getAllConsumers() {
+        return service.findAllConsumers();
     }
+
+//    @PostMapping("/")
+//    public Consumer saveOrder(List<Order> order) {
+//        return service.saveOrder(order);
+//    }
+
+//    @PostMapping("/order")
+//    public Order saveOrder(Order order) {
+//        return service.saveOrder(order);
+//    }
 
 }

@@ -4,7 +4,7 @@ import com.persistence.projectmongodb.entity.Address;
 import com.persistence.projectmongodb.entity.Consumer;
 import com.persistence.projectmongodb.entity.Order;
 import com.persistence.projectmongodb.entity.Product;
-import com.persistence.projectmongodb.repository.OrderRepository;
+import com.persistence.projectmongodb.repository.ConsumerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-@EnableMongoRepositories(basePackageClasses = OrderRepository.class)
+@EnableMongoRepositories(basePackageClasses = ConsumerRepository.class)
 public class ProjectMongoDbApplication implements CommandLineRunner{
 
 	@Autowired
-	public OrderRepository repository;
+	public ConsumerRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectMongoDbApplication.class, args);
@@ -42,7 +42,20 @@ public class ProjectMongoDbApplication implements CommandLineRunner{
 		productList.add(product);
 		productList.add(product2);
 
-		repository.save(new Order(productList, new Consumer("Fernanda", addressList, "teste@teste.com", "1234-1234", "123456789")));
+		Product product3 = new Product("abacaxi", 1, 5.50, 6);
+		Product product4 = new Product("chocolate", 2, 2.50, 5);
+		List<Product> productList2 = new ArrayList<>();
+		productList2.add(product3);
+		productList2.add(product4);
+
+		Order order = new Order(productList);
+		Order order2 = new Order(productList2);
+
+		List<Order> orderList = new ArrayList<>();
+		orderList.add(order);
+		orderList.add(order2);
+
+		repository.save(new Consumer("Fernanda", addressList, "teste@teste.com", "1234-1234", "123456789", orderList));
 
 
 	}
