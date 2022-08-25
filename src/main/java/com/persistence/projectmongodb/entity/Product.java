@@ -11,21 +11,14 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class Product {
 
     @Id
     private String product_id;
-
     private String name;
     private int inventory;
     private Double price;
     private Integer quantity;
-
-    public Product(String name, int inventory, Double price, Integer quantity) {
-        this.name = name;
-        this.inventory = inventory;
-        this.price = price;
-        this.quantity = quantity;
-    }
 
 }

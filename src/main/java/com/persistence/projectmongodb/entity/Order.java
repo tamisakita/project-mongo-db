@@ -9,16 +9,12 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class Order {
 
     @Id
     private String order_id;
 
     private List<Product> productList;
-
-    public Order(List<Product> productList) {
-        this.productList = productList;
-    }
-
 
 }

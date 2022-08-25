@@ -27,14 +27,9 @@ public class OrderController {
         return service.findAllConsumers();
     }
 
-//    @PostMapping("/")
-//    public Consumer saveOrder(List<Order> order) {
-//        return service.saveOrder(order);
-//    }
-
-//    @PostMapping("/order")
-//    public Order saveOrder(Order order) {
-//        return service.saveOrder(order);
-//    }
+    @PostMapping("/")
+    public Consumer saveOrderByConsumer(@RequestBody Consumer consumer) {
+        return service.saveOrder(consumer);
+    }
 
 }

@@ -7,6 +7,7 @@ import com.persistence.projectmongodb.repository.ConsumerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,4 +25,7 @@ public class ConsumerService {
         return repository.findAll();
     }
 
+    public Consumer saveOrder(Consumer consumer) {
+        return repository.save(consumer);
+    }
 }
